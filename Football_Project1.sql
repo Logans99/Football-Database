@@ -69,7 +69,7 @@ CREATE TABLE Player_Game
     away_team   INT(9),
     PRIMARY KEY (id_number, date, home_team, away_team),
     FOREIGN KEY (date, home_team, away_team) REFERENCES Games(date, home_team, away_team) ON DELETE NO ACTION ON UPDATE NO ACTION, -- ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (id_number) references Players(id_number) ON DELETE NO ACTION ON UPDATE NO ACTION -- ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY (id_number) references Players(id_number) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Player_Coach
@@ -78,7 +78,7 @@ CREATE TABLE Player_Coach
     id_number	INT(9),
     PRIMARY KEY (coach_id_number, id_number),
     FOREIGN KEY (coach_id_number) references Coaches(coach_id_number) ON DELETE NO ACTION ON UPDATE NO ACTION, -- ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (id_number) references Players(id_number) ON DELETE NO ACTION ON UPDATE NO ACTION -- ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY (id_number) references Players(id_number) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE Player_Phone_Number
